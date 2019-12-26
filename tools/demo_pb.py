@@ -160,13 +160,13 @@ if __name__ == '__main__':
 
     input_dir = r"D:\result\ship_tf\input_data"
     output_dir = r"D:\result\ship_tf"
-    pd_path = r"D:\result\ship_tf\ship_model_from_demo3.pd"
+    pb_path = r"D:\result\ship_tf\ship_model_from_demo3.pb"
     im_names = glob.glob(os.path.join(input_dir,"*.jpg"))
     print(im_names)
 
     with tf.Graph().as_default():
         output_graph_def = tf.GraphDef()
-        with open(pd_path, "rb") as f:
+        with open(pb_path, "rb") as f:
             output_graph_def.ParseFromString(f.read())
             tf.import_graph_def(output_graph_def, name="")
 
